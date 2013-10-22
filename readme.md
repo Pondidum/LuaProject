@@ -1,4 +1,3 @@
-
 What is it?
 --------------
 
@@ -12,51 +11,51 @@ Example
 --------------
 
 * the root file of your project:
-		
-		```lua
-		require("project")
 
-		-- create our new project
-		project:new({
+	```lua
+	require("project")
 
-			-- one of the methods of defining files to be included
-			files = {
-				"subfile1.lua",
-				"subfile2.lua",
-			},
+	-- create our new project
+	project:new({
 
-			-- what to do once the files have been loaded.
-			run = function(ns)
+		-- one of the methods of defining files to be included
+		files = {
+			"subfile1.lua",
+			"subfile2.lua",
+		},
 
-				print("Hi World")
+		-- what to do once the files have been loaded.
+		run = function(ns)
 
-				print(ns.file1)
-				print(ns.file2)
+			print("Hi World")
 
-			end,
+			print(ns.file1)
+			print(ns.file2)
 
-		}) 
-		```
+		end,
+
+	}) 
+	```
 
 * subfile1.lua
 		
-		```lua
-		local ns = ...
-		
-		print("Loading file one")
-		
-		ns.file1 = "I am file one"
-		```
+	```lua
+	local ns = ...
+	
+	print("Loading file one")
+	
+	ns.file1 = "I am file one"
+	```
 
 * subfile2.lua
 		
-		```lua
-		local ns = ...
+	```lua
+	local ns = ...
 
-		print("Loading file two")
+	print("Loading file two")
 
-		ns.file2 = "I am file two"
-		```
+	ns.file2 = "I am file two"
+	```
 
 * Produces this output:
 	
