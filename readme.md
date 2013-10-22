@@ -10,7 +10,7 @@ Add project.lua to your lua path somewhere!
 Example
 --------------
 
-* the root file of your project:
+Create a file which will act as your root file for your project:
 
 	```lua
 	require("project")
@@ -37,7 +37,7 @@ Example
 	}) 
 	```
 
-* subfile1.lua
+Files you include in the project have access to a table (generally called `ns`) passed in, which you can use for common storage:
 		
 	```lua
 	local ns = ...
@@ -47,20 +47,49 @@ Example
 	ns.file1 = "I am file one"
 	```
 
-* subfile2.lua
-		
+Advanced
+--------------
+
+files
+=====
+
+The `files` node of the project can either be a table with values being file paths, or a function which defines the files:
+
+As a table:
+
 	```lua
-	local ns = ...
-
-	print("Loading file two")
-
-	ns.file2 = "I am file two"
+	files = {
+		"subfile1.lua",
+		"subfile2.lua",
+	}
 	```
 
-* Produces this output:
+As a function, you can do anything, as long as you return a table of file names:
+
+	```lua
+	files = function()
+
+		return {
+			"subfile1.lua"
+		}
+
+	end
+	```
+
+run
+=====
+
+The `run` node is optional, and is run after all files have been loaded.  It also has access to the namespace table:
+
+	```lua
+	run = function(ns)
+
+		print("Hi World")
+
+		print(ns.file1)
+		print(ns.file2)
+
+	end
+	````
+
 	
-		Loading file one
-		Loading file two
-		Hi World
-		I am file one
-		I am file two
