@@ -1,0 +1,3 @@
+local ns = ...
+
+ns.file1 = "I am file 2"
