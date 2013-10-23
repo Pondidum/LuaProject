@@ -18,7 +18,9 @@ project:new({
 
 	files = project:io(function(io)
 
-		io.addFile("example\\2. custom-files\\subfile1.lua")
+		--io.addFile("example\\2. custom-files\\subfile1.lua")
+		io.addFilesIn("example\\2. custom-files")
+		
 		-- io.addFilesIn("example\\2. custom-files")
 		-- io.addFilesMatching("example\\*\\")
 		-- io.addFilesMatching("example\\*.test.lua")

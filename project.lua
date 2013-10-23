@@ -1,3 +1,5 @@
+local lfs = require("lfs")
+
 local getFilesToLoad = function(fileEntry)
 	
 	if fileEntry == nil then
@@ -25,6 +27,16 @@ local fileHelper = {
 		end
 
 		this.addFilesIn = function(path)
+
+			for file in lfs.dir(path) do
+
+				local fullPath = path .. "/" .. file
+
+				if file ~= "." and file ~= ".." and lfs.attributes(fullPath).mode ~= "directory" then
+					files[fullPath] = true
+				end
+
+			end
 
 		end
 
