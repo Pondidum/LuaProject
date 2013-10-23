@@ -30,7 +30,7 @@ local fileHelper = {
 
 			for file in lfs.dir(path) do
 
-				local fullPath = path .. "/" .. file
+				local fullPath = path .. "\\" .. file
 
 				if file ~= "." and file ~= ".." and lfs.attributes(fullPath).mode ~= "directory" then
 					files[fullPath] = true
@@ -46,6 +46,10 @@ local fileHelper = {
 
 		this.excludeFile = function(path)
 
+			if files[path] then
+				files[path] = nil
+			end
+			
 		end
 
 		this.excludeFilesIn = function(path)
