@@ -21,7 +21,7 @@ local fileHelper = {
 		local this  = {}
 
 		this.addFile = function(path)
-
+			files[path] = true
 		end
 
 		this.addFilesIn = function(path)
@@ -45,7 +45,15 @@ local fileHelper = {
 		end
 
 		this.listFiles = function()
-			return files
+			
+			local result = {}
+
+			for path, _ in pairs(files) do
+				table.insert(result, path)
+			end
+
+			return result
+
 		end
 
 		return this 
