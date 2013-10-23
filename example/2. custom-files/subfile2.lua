@@ -1,3 +1,3 @@
 local ns = ...
 
-ns.file1 = "I am file 2"
+ns.file2 = "I am file 2"

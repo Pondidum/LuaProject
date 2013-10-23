@@ -10,8 +10,8 @@ project:new({
 	files = function()
 
 		return {
-			"subfile1.lua",
-			"subfile2.lua",
+			"example\\2. custom-files\\subfile1.lua",
+			"example\\2. custom-files\\subfile2.lua",
 		}
 		
 	end,
