@@ -12,6 +12,48 @@ local getFilesToLoad = function(fileEntry)
 
 end
 
+
+local fileHelper = {
+
+	new = function()
+
+		local files = {}
+		local this  = {}
+
+		this.addFile = function(path)
+
+		end
+
+		this.addFilesIn = function(path)
+
+		end
+
+		this.addFilesMatching = function(path)
+
+		end
+
+		this.excludeFile = function(path)
+
+		end
+
+		this.excludeFilesIn = function(path)
+
+		end
+
+		this.excludeFilesMatching = function(path)
+
+		end
+
+		this.listFiles = function()
+			return files
+		end
+
+		return this 
+
+	end,
+}
+
+
 project = {
 	
 	new = function(self, config)
@@ -33,5 +75,16 @@ project = {
 
 		run(ns)
 
-	end,	
+	end,
+
+	io = function(self, action)
+
+		local helper = fileHelper.new()
+
+		action(helper)
+
+		return helper.listFiles()
+
+	end,
+
 }
