@@ -18,12 +18,14 @@ project:new({
 
 	files = project:io(function(io)
 
-		io.addFile("example\\2. custom-files\\subfile1.lua")
+		--io.addFile("example\\2. custom-files\\subfile1.lua")
+		io.addFilesIn("example\\2. custom-files")
+
 		-- io.addFilesIn("example\\2. custom-files")
 		-- io.addFilesMatching("example\\*\\")
 		-- io.addFilesMatching("example\\*.test.lua")
 
-		-- io.excludeFile("sub1.lua")
+		io.excludeFile("example\\2. custom-files\\custom-files-project.lua")
 		-- io.excludeFilesIn("example\\1. simple")
 		-- io.excludeFilesMatching("*.test.lua")
 
