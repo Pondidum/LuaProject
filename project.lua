@@ -40,10 +40,6 @@ local fileHelper = {
 
 		end
 
-		this.addFilesMatching = function(path)
-
-		end
-
 		this.excludeFile = function(path)
 
 			if files[path] then
@@ -52,11 +48,15 @@ local fileHelper = {
 			
 		end
 
-		this.excludeFilesIn = function(path)
+		this.excludeFilesMatching = function(expression)
 
-		end
+			for path, _ in pairs(files) do
+				
+				if path:find(expression) then
+					files[path] = nil
+				end
 
-		this.excludeFilesMatching = function(path)
+			end
 
 		end
 
