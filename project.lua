@@ -14,6 +14,17 @@ local getFilesToLoad = function(fileEntry)
 
 end
 
+local indexOf = function(table, value)
+
+	for i,v in ipairs(table) do
+		
+		if v == value then
+			return i
+		end
+
+	end
+	
+end
 
 local fileHelper = {
 
@@ -23,7 +34,7 @@ local fileHelper = {
 		local this  = {}
 
 		this.addFile = function(path)
-			files[path] = true
+			table.insert(files, path)
 		end
 
 		this.addFilesIn = function(path)
@@ -33,7 +44,7 @@ local fileHelper = {
 				local fullPath = path .. "\\" .. file
 
 				if file ~= "." and file ~= ".." and lfs.attributes(fullPath).mode ~= "directory" then
-					files[fullPath] = true
+					table.insert(files, fullPath)
 				end
 
 			end
@@ -41,35 +52,29 @@ local fileHelper = {
 		end
 
 		this.excludeFile = function(path)
-
-			if files[path] then
-				files[path] = nil
-			end
-			
+			table.remove(files, indexOf(files, path))
 		end
 
 		this.excludeFilesMatching = function(expression)
 
-			for path, _ in pairs(files) do
+			local toRemove = {}
+
+			for i, path in ipairs(files) do
 				
 				if path:find(expression) then
-					files[path] = nil
+					table.insert(toRemove, path)
 				end
 
+			end
+
+			for i, path in ipairs(toRemove) do
+				this.excludeFile(path)
 			end
 
 		end
 
 		this.listFiles = function()
-			
-			local result = {}
-
-			for path, _ in pairs(files) do
-				table.insert(result, path)
-			end
-
-			return result
-
+			return files
 		end
 
 		return this 
