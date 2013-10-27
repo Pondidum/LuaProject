@@ -5,7 +5,7 @@ A small library to make developing large lua projects easier.
 
 Usage
 =====
-Add project.lua to your lua path somewhere!
+Add project.lua to your lua path somewhere, or just include `project.lua` in your project's root directory.
 
 Example
 =====
@@ -53,7 +53,7 @@ Advanced
 files
 -----
 
-The `files` node of the project can either be a table with values being file paths, or a function which defines the files:
+The `files` node of the project can either be a table with values being file paths, or a function which defines the files, or you can use the io helper:
 
 As a table:
 
@@ -74,6 +74,21 @@ files = function()
 	}
 
 end
+```
+
+With the io stub:
+
+```lua
+files = project:io(function(io)
+
+	io.addFile("bin\\runner.lua")
+	io.addFilesIn("core")
+	io.addFilesIn("widgets")
+	io.excludeFile("core\\temp.lua")
+	io.excludeFilesMatching("*.xml")
+
+end)
+
 ```
 
 run
