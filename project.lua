@@ -80,7 +80,21 @@ local fileHelper = {
 		end
 
 		this.listFiles = function()
-			return files
+			
+			local seen = {}
+			local result = {}
+		
+			for i, path in ipairs(files) do
+				
+				if not seen[path] then
+					table.insert(result, path)
+					seen[path] = true 
+				end
+		
+			end
+			
+			return result 
+			
 		end
 
 		return this 
