@@ -1,4 +1,4 @@
-local lfs = require("lfs")
+local VERSION = "0.0.1"
 
 local getFilesToLoad = function(fileEntry)
 	
@@ -30,6 +30,7 @@ local fileHelper = {
 
 	new = function()
 
+		local lfs = require("lfs")
 		local files = {}
 		local this  = {}
 
@@ -121,5 +122,11 @@ project = {
 		return helper.listFiles()
 
 	end,
+
+	version = function()
+
+		print("Project.lua, version ".. VERSION)
+
+	end.
 
 }
