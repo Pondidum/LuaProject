@@ -115,7 +115,7 @@ project = {
 
 		for i, filename in ipairs(files) do
 			
-			local content = loadfile(filename)
+			local content = assert(loadfile(filename))
 
 			if filename and content then
 				content(ns)
