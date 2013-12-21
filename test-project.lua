@@ -1,6 +1,6 @@
-require("project")
+local project = require("project")
 
-project:new({
+local testProject = project:new({
 
 	-- files = {
 	-- 	"example\\2. custom-files\\subfile1.lua",
@@ -35,3 +35,5 @@ project:new({
 	end,
 
 }) 
+
+testProject.run()

@@ -1,6 +1,6 @@
-require("project")
+local project = require("project")
 
-project:new({
+local testProject = project:new({
 
 	files = function()
 
@@ -21,3 +21,5 @@ project:new({
 	end,
 
 }) 
+
+testProject.run()

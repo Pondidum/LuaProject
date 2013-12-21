@@ -104,7 +104,7 @@ local fileHelper = {
 }
 
 
-project = {
+local project = {
 	
 	new = function(self, config)
 
@@ -148,3 +148,5 @@ project = {
 	end,
 
 }
+
+return project
