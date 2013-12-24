@@ -110,7 +110,6 @@ local project = {
 
 		local files = getFilesToLoad(config.files)
 		local run = config.run or function() end
-		local test = config.test or function() end
 
 		local ns = {}
 
@@ -127,11 +126,7 @@ local project = {
 		return {
 			run = function()
 				run(ns)
-			end,
-
-			test = function()
-				test(ns)
-			end,
+			end
 		}
 
 	end,
