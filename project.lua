@@ -125,7 +125,7 @@ local project = {
 
 		return {
 			run = function()
-				run(ns)
+				return run(ns)
 			end
 		}
 
