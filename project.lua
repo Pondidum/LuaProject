@@ -1,4 +1,4 @@
-local VERSION = "0.1.1"
+local VERSION = "0.1.2"
 
 local getFilesToLoad = function(fileEntry)
 
